@@ -21,21 +21,21 @@ const Home = () => {
       title: "List All Appointments",
       description: "Access patient records",
       detail: "Quickly view all patient patient appointments.",
-      route: "/listappointments",
+      route: "/home/listappointments",
     },
     {
       id: 2,
       title: "Make an Appoitment",
       description: "book a date",
       detail: " To make an appointment with information",
-      route: "/makeappointments",
+      route: "/home/makeappointments",
     },
     // Add more objects for more cards...
   ];
   const handleCardClick = (path: string) => {
-    if (path === "/makeappointments") navigate("/makeappointments"); // Navigate to the path provided
+    if (path === "/home/makeappointments") navigate("/home/makeappointments"); // Navigate to the path provided
 
-    if (path === "/listappointments") navigate("/listappointments");
+    if (path === "/home/listappointments") navigate("/home/listappointments");
   };
   return (
     <>
