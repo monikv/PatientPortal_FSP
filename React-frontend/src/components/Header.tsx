@@ -1,24 +1,22 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import './Header.css'; // Assuming you have some CSS for styling
-import { useAuth } from './AuthContext';
-import logo from '../assets/Ampatientportal.svg'
- 
-
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import "./Header.css"; // Assuming you have some CSS for styling
+import { useAuth } from "./AuthContext";
+import logo from "../assets/Ampatientportal.svg";
 
 const Header = () => {
-  const { isAuthenticated,logout } = useAuth();
+  const { isAuthenticated, logout } = useAuth();
   const navigate = useNavigate();
-
+  console.log("Header load", isAuthenticated);
 
   const handleLogout = () => {
     // Implement logout logic here
     logout();
-    console.log('Logging out...');
+    console.log("Logging out...");
     // Set isAuthenticated to false, clear tokens, etc.
     // This is simplified; you'll likely need context or Redux for global state management
 
-    navigate('/login');
+    navigate("/login");
   };
 
   return (
@@ -26,7 +24,9 @@ const Header = () => {
       <img src={logo} alt="Logo" className="header-logo" />
       <h1>Patient Portal</h1>
       {isAuthenticated && (
-        <button onClick={handleLogout} className="logout-button">Logout</button>
+        <button onClick={handleLogout} className="logout-button">
+          Logout
+        </button>
       )}
     </header>
   );
